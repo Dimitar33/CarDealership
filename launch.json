@@ -1,0 +1,10 @@
+{
+    "name": "Listen for Xdebug",
+    "type": "php",
+    "request": "launch",
+    "port": 9003,
+    "hostname": "127.0.0.1",
+    "pathMappings": {
+        "C:/laragon/www/CarDealership": "${workspaceFolder}"
+    }
+}
