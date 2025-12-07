@@ -9,7 +9,7 @@ class User
         $this->db = require __DIR__ . "/../lib/dbConnect.php";
     }
 
-    public function loginUser($email, $password)
+    public function findUser($email, $password)
     {
         try {
 
@@ -19,7 +19,41 @@ class User
             $statement->execute(['email' => $email, 'password' => $password]);
             $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-            return $user ?: null;
+            return $user ?? null;
+
+        } catch (PDOException $e) {
+            echo $sql . "<br>" . $e->getMessage();
+        }
+    }
+
+    public function findById($userId)
+    {
+        try {
+
+            $sql = "SELECT * FROM users WHERE id = :user_id";
+
+            $statement = $this->db->prepare($sql);
+            $statement->execute(['user_id' => $userId]);
+            $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+            return $user ?? null;
+
+        } catch (PDOException $e) {
+            echo $sql . "<br>" . $e->getMessage();
+        }
+    }   
+
+    public function findEmail($email)
+    {
+        try {
+
+            $sql = "SELECT * FROM users WHERE email = :email";
+
+            $statement = $this->db->prepare($sql);
+            $statement->execute(['email' => $email]);
+            $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+            return $user['email'] ?? null;
 
         } catch (PDOException $e) {
             echo $sql . "<br>" . $e->getMessage();
@@ -36,7 +70,48 @@ class User
             $statement = $this->db->prepare($sql);
             $statement->execute([':username' => $username, ':email' => $email, ':password' => $password, ':phone' => $phone]);
 
-            //$new_user['password'] = password_hash($new_user['password'], PASSWORD_DEFAULT);
+        } catch (PDOException $e) {
+            echo $sql . "<br>" . $e->getMessage();
+        }
+    }
+
+    public function updateUser($userId, $username, $phone, $address_line, $county, $country, $postcode)
+    {
+        try {
+
+            $sql = "UPDATE users SET 
+            username = :username, 
+            phone = :phone, 
+            address_line = :address_line, 
+            county = :county, 
+            country = :country, 
+            postcode = :postcode 
+            WHERE id = :userId";
+
+            $statement = $this->db->prepare($sql);
+            $statement->execute([
+                ':userId' => $userId,
+                ':username' => $username,
+                ':phone' => $phone,
+                ':address_line' => $address_line,
+                ':county' => $county,
+                ':country' => $country,
+                ':postcode' => $postcode,
+            ]);
+
+        } catch (PDOException $e) {
+            echo $sql . "<br>" . $e->getMessage();
+        }
+    }
+
+    public function deleteUser($userId)
+    {
+        try {
+
+            $sql = "DELETE FROM users WHERE id = :user_id";
+
+            $statement = $this->db->prepare($sql);
+            $statement->execute([':user_id' => $userId]);
 
         } catch (PDOException $e) {
             echo $sql . "<br>" . $e->getMessage();

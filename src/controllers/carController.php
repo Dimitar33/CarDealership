@@ -25,7 +25,7 @@ class CarController
             return;
         }
 
-        $userId = $_SESSION['UserID'];
+        $userId = $_SESSION['UserID'] ?? null;
         $userModel = new User();
         $isFavorite = $userModel->isFavorite($userId, $id);
 

@@ -31,4 +31,22 @@ class HomeController
 
         return require_once __DIR__ . "/../views/userFavorites.php";
     }
+
+    public function userInfo()
+    {
+
+        require_once __DIR__ . "/../models/user.php";
+
+        $userId = $_SESSION['UserID'];
+
+        if (!$userId) {
+            echo "<p>User not found!</p>";
+            require_once __DIR__ . "/../views/login.php";
+            return;
+        }
+        $userModel = new User();
+        $user = $userModel->findById($userId);
+
+        return require_once __DIR__ . "/../views/userInfo.php";
+    }
 }

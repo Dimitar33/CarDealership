@@ -18,6 +18,7 @@ if ($id != null && method_exists($controller, $actionName)) {
 
     $controller->$actionName();
 } else {
+    var_dump($_GET);
     echo "<p>Action not found!</p>";
 }
 

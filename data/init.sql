@@ -29,7 +29,11 @@ id INT AUTO_INCREMENT PRIMARY KEY,
 username VARCHAR(50) UNIQUE NOT NULL,
 email VARCHAR(100) UNIQUE NOT NULL,
 password VARCHAR(255) NOT NULL,
-phone VARCHAR(20)
+phone VARCHAR(20),
+address_line VARCHAR(255),
+county VARCHAR(30),
+country VARCHAR(30),
+postcode VARCHAR(20)
 );
 
 CREATE TABLE user_favorites (
