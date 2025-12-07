@@ -81,7 +81,7 @@ class UserController
         }
 
         $userModel = new User();
-        if (isset($_POST['action']) && $_POST['action'] === 'update') {
+        if ($_POST['action'] === 'update') {
 
             $userModel->updateUser(
                 $userId,

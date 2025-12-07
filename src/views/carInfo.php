@@ -8,9 +8,13 @@
                 <div class="col-md-6">
                     <div class="small mb-1"><?php echo $car['model'] ?></div>
                     <h1 class="display-5 fw-bolder"><?php echo $car['make'] . " " . $car['model'] ?></h1>
+
+                    <h5 class="fw-bolder"><?= $car['engine_power'] ?> HP</h5>
+                    <h5 class="fw-bolder"><?= $car['color'] ?></h5>
                     <div class="fs-5 mb-5">
-                        <span class="text-decoration-line-through">$<?php echo number_format($car['price'] * 1.1, 0) ?></span>
-                        <span>$<?php echo  number_format($car['price'], 0) ?></span>
+                        <span
+                            class="text-decoration-line-through">$<?php echo number_format($car['price'] * 1.1, 0) ?></span>
+                        <span>$<?php echo number_format($car['price'], 0) ?></span>
                     </div>
                     <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem
                         quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis

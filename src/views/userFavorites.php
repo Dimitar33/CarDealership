@@ -17,12 +17,10 @@
                                     <!-- Product name-->
                                     <h5 class="fw-bolder"><?= $car['make'] ?></h5>
                                     <h5 class="fw-bolder"><?= $car['model'] ?></h5>
-                                    <h5 class="fw-bolder"><?= $car['engine_power'] ?> HP</h5>
-                                    <h5 class="fw-bolder"><?= $car['color'] ?></h5>
                                     <h5 class="fw-bolder"><?= $car['price'] ?> euro</h5>
                                 </div>
                             </div>
-                            <!-- Product actions-->
+                            <!-- Product actions--> 
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="index.php?controller=car&action=findCar&id=<?= $car['id'] ?>">Details</a></div>
                             </div>

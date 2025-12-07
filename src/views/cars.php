@@ -26,8 +26,6 @@
                                 <!-- Product name-->
                                 <h5 class="fw-bolder"><?= $car['make'] ?></h5>
                                 <h5 class="fw-bolder"><?= $car['model'] ?></h5>
-                                <h5 class="fw-bolder"><?= $car['engine_power'] ?> HP</h5>
-                                <h5 class="fw-bolder"><?= $car['color'] ?></h5>
                                 <h5 class="fw-bolder"><?= $car['price'] ?> euro</h5>
                             </div>
                         </div>
